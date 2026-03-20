@@ -1,18 +1,35 @@
+import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import '../styles/Header.css';
 
-function Header({ cartItemCount, onCartClick }) {
-  return (
-    <header className="header">
-      <div className="header-content">
-        <h1>🛒 QuickCart</h1>
+function Header({ searchTerm, onSearchChange }) {
+  const { getTotalItems, toggleCart } = useCart();
 
-        <button className="cart-icon-btn" onClick={onCartClick}>
-          🛒
-          {cartItemCount > 0 && (
-            <span className="cart-badge">{cartItemCount}</span>
-          )}
-        </button>
-      </div>
+  const categories = ['Electronics', 'Accessories', 'Home', 'Sports'];
+
+  return (
+    <header className="header"a>
+      <Link to="/">QuickCart</Link>
+
+      <nav>
+        {categories.map(cat => (
+          <Link key={cat} to={`/category/${cat}`}>
+            {cat}
+          </Link>
+        ))}
+        <Link to="/cart">Cart</Link>
+      </nav>
+
+      <input
+        type="text"
+        placeholder="Search..."
+        value={searchTerm}
+        onChange={(e) => onSearchChange(e.target.value)}
+      />
+
+      <button onClick={toggleCart}>
+        🛒 {getTotalItems()}
+      </button>
     </header>
   );
 }
