@@ -1,15 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --bg-color: #f8fafc;
+  --surface: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --border: #e2e8f0;
+  --radius: 12px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
 body {
-  margin: 0;
+  background: var(--bg-color);
   font-family: 'Inter', sans-serif;
-  background: #f5f7fb;
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
 }
 
-.app {
-  min-height: 100vh;
-}
-
-.main-content {
-  padding: 30px;
+.container {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  margin: 20px 0;
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+/* Generic Button Styles inherited by components */
+button {
+  font-family: inherit;
+  transition: all 0.2s ease;
 }
